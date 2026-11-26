@@ -1,0 +1,8 @@
+services:
+  academy:
+    build: .
+    ports: ["8000:8000"]
+    volumes: ["./data:/app/data"]     # здесь живёт база: делайте её резервные копии
+    environment:
+      COOKIE_SECURE: "0"              # поставьте "1" после подключения HTTPS
+    restart: unless-stopped
